@@ -1,0 +1,7 @@
+name: Delete Contentful Dev Environment
+description: CI — Delete Contentful Dev Environment
+runs:
+  using: node12
+  main: src/index.js
+outputs:
+  description: The dev environment was deleted

@@ -1,0 +1,31 @@
+name: Delete Contentful Dev Environment
+on:
+  # trigger on push or pull
+  # only to dev branch
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  Delete-Contentful-Dev-Environment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v2
+
+      - name: Install Node
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      
+      - run: npm install
+      - run: npm test
+
+      - name: Delete Contentful Dev Environment
+        uses: ./ci
+
+      - run: echo "This job only runs on push and pull requests to the dev branch. ✅"
+      - run: echo "Job status is ${{ job.status }}."
