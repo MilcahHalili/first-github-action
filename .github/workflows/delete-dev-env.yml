@@ -13,13 +13,11 @@ jobs:
   Delete-Contentful-Dev-Environment:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
       - run: npm install -g
-      - run: npm test
 
       - name: Delete Contentful Dev Environment
         uses: ./ci
